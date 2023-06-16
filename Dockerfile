@@ -7,7 +7,9 @@ COPY pom.xml /usr/src/app
 USER root
 RUN chown -R quarkus /usr/src/app
 USER quarkus
-RUN mvn -f /usr/src/app/pom.xml clean package
+# RUN mvn -f /usr/src/app/pom.xml clean package
+WORKDIR /usr/src/app
+RUN mvn clean package
 
 ####
 # Package Runtime
